@@ -15,8 +15,9 @@ class App extends Component {
 
   addClickHandler = () => {
     if(this.state.text.trim() === "") return;
-    this.props.dispatch(todoActions.addTodo({content: this.state.text}));
-    this.setState({text: ""})
+    this.props.dispatch(todoActions.addTodo({content: this.state.text})).then(()=>{
+      this.setState({text: ""})
+    });
   };
 
   removeClickHandler = (id) => {
